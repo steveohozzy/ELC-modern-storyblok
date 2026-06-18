@@ -12,7 +12,7 @@ export default function Blog({
     <section
       {...storyblokEditable(blok)}
       id="blog"
-      className={`mx-auto max-w-7xl px-4 ${blok.Title ? "py-20" : "py-10"} md:px-8 ${blok.Title ? "lg:py-28" : "lg:py-16"}`}
+      className={`mx-auto max-w-7xl px-4 ${blok.Title ? "py-20" : "py-10"} md:px-8 ${blok.Title ? "lg:py-28" : "lg:pb-12 lg:pt-4"}`}
     >
       {blok.Title && (
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
