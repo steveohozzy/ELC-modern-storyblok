@@ -28,7 +28,7 @@ export default function RichText({ blok }) {
     <section
       {...storyblokEditable(blok)}
       className={[
-        "px-4 md:px-8 mx-auto",
+        "px-4 md:px-8 mx-auto items-center gap-10",
         width[blok.width] || "max-w-none",
         paddingTop[blok.paddingTop] || "",
         paddingBottom[blok.paddingBottom] || "",
@@ -48,19 +48,32 @@ export default function RichText({ blok }) {
         "[&_h4]:text-primary",
         "[&_h4]:text-xl",
         "[&_h4]:font-heading",
+        "[&_h4]:mt-8",
+        "[&_h4]:mb-4",
 
         "[&_ul]:space-y-4",
+        "[&_li]:leading-8",
+        "[&_li]:leading-8",
         "[&_li]:list-disc",
         "[&_li]:list-inside",
 
+        "[&_li>p]:m-0",
+        "[&_li>p]:inline",
+
+        "[&_p]:text-foreground",
         "[&_p]:leading-8",
 
         "[&_a]:text-primary",
         "[&_a]:font-medium",
+        "[&_a]:no-underline",
         "hover:[&_a]:underline",
 
+        "[&_.blog-cat-link]:hidden",
+
+        "[&_img]:overflow-hidden",
         "[&_img]:rounded-[2rem]",
         "[&_img]:border",
+        "[&_img]:border-border",
         "[&_img]:shadow-xl",
       ].join(" ")}
       dangerouslySetInnerHTML={{
