@@ -29,9 +29,13 @@ export default async function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${fraunces.variable}`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <Header menuItems={menuItems} />
-        {children}
+
+        <main className="flex-1">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
