@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🌿 ELC – Next.js + Storyblok Frontend
 
-## Getting Started
+A modern headless frontend built with Next.js (App Router) and Storyblok CMS, designed for flexible content modelling, reusable components, and scalable page building.
 
-First, run the development server:
+This project powers a component-driven marketing and content experience using Storyblok as the source of truth.
 
-```bash
+🚀 Tech Stack
+Next.js (App Router)
+React 18
+Storyblok Headless CMS
+Tailwind CSS
+Storyblok React SDK (@storyblok/react/rsc)
+Google Fonts (Geist + Fraunces)
+📦 Features
+🧩 Fully component-driven CMS pages (Storyblok blocks)
+⚡ Server-side rendering via Next.js App Router
+🧠 Dynamic page resolution via cdn/stories
+🗂 Folder-based routing for pages and blog posts
+🔗 Safe link resolver for internal/external Storyblok links
+🎨 Tailwind-based design system
+📱 Fully responsive layout system
+🧱 Reusable Storyblok blocks (Hero, Marquee, Blog, etc.)
+📁 Project Structure
+src/
+├── app/
+│   ├── [[...slug]]/page.js   # Dynamic Storyblok page resolver
+│   ├── layout.js
+├── components/
+│   ├── HomepageHero/
+│   ├── StorySection/
+│   ├── Marquee/
+│   ├── BlogSection/
+│   ├── Newsletter/
+│   ├── RichText/
+│   └── Header/
+├── lib/
+│   ├── storyblok.js          # Storyblok init + link resolver
+│   ├── getNavigation.js      # Dynamic navigation from Storyblok
+🧠 How It Works
+1. Storyblok as CMS
+
+All pages and components are created inside Storyblok and delivered via API.
+
+Each page is composed of blocks, mapped to React components:
+
+components: {
+  page: Page,
+  homepageHero: HomepageHero,
+  storySection: StorySection,
+  marquee: Marquee,
+  blogSection: Blog,
+  newsletter: Newsletter,
+  richText: RichText,
+}
+2. Dynamic Routing
+
+All routes are handled by:
+
+src/app/[[...slug]]/page.js
+
+It fetches content from Storyblok:
+
+cdn/stories/${slug}
+/ → home
+/blog → blog index page
+/blog/my-post → blog post page
+3. Navigation System
+
+Navigation is automatically generated using Storyblok Links API:
+
+cdn/links
+
+Filtered to exclude folders and nested routes:
+
+.filter((link) => !link.is_folder)
+.filter((link) => !link.slug.includes("/"))
+4. Link Resolver
+
+All Storyblok links are normalised using:
+
+export function resolveLink(link) {
+  if (link.linktype === "story") {
+    return `/${link.cached_url}`;
+  }
+
+  return link.url || "/";
+}
+🧱 Creating Content in Storyblok
+Pages
+
+Create a Story under the root folder:
+
+home
+blog
+about
+Blog Posts
+
+Create inside a folder:
+
+blog/
+  ├── guide-to-your-babys-developmental-milestones
+🧩 Adding New Components
+Create a React component
+Register it in storyblokInit
+
+Example:
+
+import MyComponent from "@/components/MyComponent";
+
+components: {
+  myComponent: MyComponent,
+}
+Add matching block in Storyblok
+🖼 Rich Text Rendering
+
+Storyblok rich text is rendered using:
+
+import { renderRichText } from "@storyblok/react/rsc";
+
+renderRichText(blok.content)
+⚙️ Environment Variables
+STORYBLOK_DELIVERY_API_TOKEN=your_token_here
+🧪 Local Development
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Runs on:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+http://localhost:3000
+🔐 HTTPS Local Setup (Storyblok Live Editor)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Storyblok Live Editor requires HTTPS.
 
-## Learn More
+Use a local SSL proxy:
 
-To learn more about Next.js, take a look at the following resources:
+local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Then access:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+https://localhost:3010
+📌 Notes
+Storyblok is the single source of truth for content
+Pages are fully component-driven
+Navigation is dynamically generated
+All routing is handled via Next.js App Router
+🧭 Roadmap
+ Visual editing improvements
+ Preview mode polish
+ Blog filtering system
+ Global settings (footer, SEO)
+ Performance optimisations
+📄 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private project – Early Learning Centre demo build
