@@ -12,18 +12,17 @@ export default function Blog({
     <section
       {...storyblokEditable(blok)}
       id="blog"
-      className="mx-auto max-w-7xl px-4 py-20 md:px-8 lg:py-28"
+      className={`mx-auto max-w-7xl px-4 ${blok.Title ? "py-20" : "py-10"} md:px-8 ${blok.Title ? "lg:py-28" : "lg:py-16"}`}
     >
+      {blok.Title && (
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-xl">
           <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-            {blok.Tagline ||
-              "The journal"}
+            {blok.Tagline}
           </span>
 
           <h2 className="mt-3 text-balance font-heading text-4xl font-semibold leading-tight text-foreground md:text-5xl">
-            {blok.Title ||
-              "Ideas, stories & gentle guidance"}
+            {blok.Title}
           </h2>
         </div>
 
@@ -50,6 +49,7 @@ export default function Blog({
           </svg>
         </Link>
       </div>
+      )}
 
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {panels.map((p) => (

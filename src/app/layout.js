@@ -1,6 +1,9 @@
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 
+import Header from "@/components/Header";
+import { getNavigation } from "@/lib/getNavigation";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,16 +17,21 @@ const fraunces = Fraunces({
 
 export const metadata = {
   title: "ELC",
-  description: "Test with Sortyblok",
+  description: "Test with Storyblok",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const menuItems = await getNavigation();
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${fraunces.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header menuItems={menuItems} />
+        {children}
+      </body>
     </html>
   );
 }

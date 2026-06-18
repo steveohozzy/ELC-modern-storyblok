@@ -3,34 +3,26 @@ import { getStoryblokApi } from "@/lib/storyblok";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }) {
-  const resolvedParams = await params;
+  const slug = (await params)?.slug?.join("/") || "home";
 
-  const fullSlug =
-    resolvedParams?.slug?.join("/") ||
-    "home";
-
-  console.log("Requested:", fullSlug);
+  let data;
 
   try {
     const storyblokApi = getStoryblokApi();
 
-    const { data } =
-      await storyblokApi.get(
-        `cdn/stories/${fullSlug}`,
-        {
-          version: "draft",
-        }
-      );
-
-    console.log(
-      "Loaded:",
-      data.story.full_slug
+    const res = await storyblokApi.get(
+      `cdn/stories/${slug}`,
+      { version: "draft" }
     );
 
-    return (
-      <StoryblokStory story={data.story} />
-    );
-  } catch {
+    data = res.data;
+  } catch (e) {
     notFound();
   }
+
+  if (!data?.story) {
+    notFound();
+  }
+
+  return <StoryblokStory story={data.story} />;
 }

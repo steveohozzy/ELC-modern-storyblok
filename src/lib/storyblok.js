@@ -4,6 +4,7 @@ import StorySection from "@/components/StorySection";
 import Marquee from "@/components/Marquee";
 import PanelsSet from "@/components/PanelsSet";
 import Blog from "@/components/BlogSection";
+import RichText from "@/components/RichText";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -19,6 +20,7 @@ export const getStoryblokApi = storyblokInit({
     Marquee: Marquee,
     panelsSet: PanelsSet,
     blogSection: Blog,
+    RichText: RichText,
   },
 
   apiOptions: {
