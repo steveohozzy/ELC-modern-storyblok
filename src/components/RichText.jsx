@@ -24,14 +24,23 @@ export default function RichText({ blok }) {
     lg: "max-w-6xl",
   };
 
+  const paddingX = {
+    none: "",
+    sm: "px-4",
+    md: "px-6 md:px-8",
+    lg: "px-8 md:px-12",
+    xl: "px-10 md:px-16",
+  };
+
   return (
     <section
       {...storyblokEditable(blok)}
       className={[
-        "px-4 md:px-8 mx-auto items-center gap-10",
+        "mx-auto items-center gap-10 lg:gap-12",
         width[blok.width] || "max-w-none",
         paddingTop[blok.paddingTop] || "",
         paddingBottom[blok.paddingBottom] || "",
+        paddingX[blok.paddingX] || "",
 
         "[&_h2]:text-primary",
         "[&_h2]:text-3xl",
@@ -62,6 +71,7 @@ export default function RichText({ blok }) {
 
         "[&_p]:text-foreground",
         "[&_p]:leading-8",
+        "[&_p]:mb-6",
 
         "[&_a]:text-primary",
         "[&_a]:font-medium",
