@@ -3,6 +3,7 @@ import HomepageHero from "@/components/HomepageHero";
 import StorySection from "@/components/StorySection";
 import Marquee from "@/components/Marquee";
 import PanelsSet from "@/components/PanelsSet";
+import Blog from "@/components/BlogSection";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -17,6 +18,7 @@ export const getStoryblokApi = storyblokInit({
     storySection: StorySection,
     Marquee: Marquee,
     panelsSet: PanelsSet,
+    blogSection: Blog,
   },
 
   apiOptions: {

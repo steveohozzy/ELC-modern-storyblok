@@ -1,14 +1,36 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { getStoryblokApi } from "@/lib/storyblok";
+import { notFound } from "next/navigation";
 
 export default async function Page({ params }) {
-  const slug = params?.slug?.join("/") || "home";
+  const resolvedParams = await params;
 
-  const storyblokApi = getStoryblokApi();
+  const fullSlug =
+    resolvedParams?.slug?.join("/") ||
+    "home";
 
-  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-    version: "draft",
-  });
+  console.log("Requested:", fullSlug);
 
-  return <StoryblokStory story={data.story} />;
+  try {
+    const storyblokApi = getStoryblokApi();
+
+    const { data } =
+      await storyblokApi.get(
+        `cdn/stories/${fullSlug}`,
+        {
+          version: "draft",
+        }
+      );
+
+    console.log(
+      "Loaded:",
+      data.story.full_slug
+    );
+
+    return (
+      <StoryblokStory story={data.story} />
+    );
+  } catch {
+    notFound();
+  }
 }
