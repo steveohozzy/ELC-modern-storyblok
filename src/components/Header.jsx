@@ -66,7 +66,7 @@ export default function Header({ blok, menuItems = [] }) {
 
           <button
             onClick={() => setOpen(false)}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-2xl text-white hover:bg-white/20 cursor-pointer"
           >
             ×
           </button>

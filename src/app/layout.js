@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import { getNavigation } from "@/lib/getNavigation";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default async function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Header menuItems={menuItems} />
         {children}
+        <Footer />
       </body>
     </html>
   );
