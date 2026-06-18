@@ -7,6 +7,7 @@ import Blog from "@/components/BlogSection";
 import Newsletter from "@/components/Newsletter";
 import RichText from "@/components/RichText";
 import Grid from "@/components/Grid";
+import Column from "@/components/Column";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -34,7 +35,8 @@ export const getStoryblokApi = storyblokInit({
     blogSection: Blog,
     newsletter: Newsletter,
     RichText: RichText,
-    grid: Grid,
+    Grid: Grid,
+    column: Column,
   },
 
   apiOptions: {

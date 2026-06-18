@@ -1,5 +1,5 @@
 import {
-  StoryblokComponent,
+  StoryblokServerComponent,
   storyblokEditable,
 } from "@storyblok/react/rsc";
 
@@ -65,16 +65,18 @@ export default function Grid({ blok }) {
       <div
         className={[
           "grid",
+
           mobileCols[blok.columnsMobile] || "grid-cols-1",
           tabletCols[blok.columnsTablet] || "md:grid-cols-2",
-          desktopCols[blok.columnsDesktop] || "lg:grid-cols-3",
+          desktopCols[blok.columnsDesktop] || "lg:grid-cols-12",
+
           gaps[blok.gap] || "gap-6",
         ].join(" ")}
       >
-        {blok.items?.map((nestedBlok) => (
-          <StoryblokComponent
-            blok={nestedBlok}
-            key={nestedBlok._uid}
+        {blok.content?.map((nested) => (
+          <StoryblokServerComponent
+            blok={nested}
+            key={nested._uid}
           />
         ))}
       </div>
