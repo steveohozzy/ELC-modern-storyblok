@@ -8,6 +8,7 @@ import Newsletter from "@/components/Newsletter";
 import RichText from "@/components/RichText";
 import Grid from "@/components/Grid";
 import Column from "@/components/Column";
+import HtmlBlock from "@/components/HTMLBlock";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -37,6 +38,7 @@ export const getStoryblokApi = storyblokInit({
     RichText: RichText,
     Grid: Grid,
     column: Column,
+    htmlBlock: HtmlBlock,
   },
 
   apiOptions: {
