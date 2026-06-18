@@ -6,6 +6,7 @@ import PanelsSet from "@/components/PanelsSet";
 import Blog from "@/components/BlogSection";
 import Newsletter from "@/components/Newsletter";
 import RichText from "@/components/RichText";
+import Grid from "@/components/Grid";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
@@ -33,6 +34,7 @@ export const getStoryblokApi = storyblokInit({
     blogSection: Blog,
     newsletter: Newsletter,
     RichText: RichText,
+    grid: Grid,
   },
 
   apiOptions: {
