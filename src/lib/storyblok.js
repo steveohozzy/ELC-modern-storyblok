@@ -9,6 +9,16 @@ import RichText from "@/components/RichText";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 
+export function resolveLink(link) {
+  if (!link) return "/";
+
+  if (link.linktype === "story") {
+    return `/${link.cached_url}`;
+  }
+
+  return link.url || "/";
+}
+
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.STORYBLOK_DELIVERY_API_TOKEN,
 

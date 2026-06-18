@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { storyblokEditable } from "@storyblok/react/rsc";
+import { resolveLink } from "@/lib/storyblok";
 
 export default function HomeHero({ blok }) {
   console.log(blok);
@@ -40,7 +41,7 @@ export default function HomeHero({ blok }) {
           {blok.CtaPrimaryText && (
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={blok.CtaPrimaryLink?.url || "/"}
+                href={resolveLink(blok.CtaPrimaryLink)}
                 className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
               >
                 {blok.CtaPrimaryText}
@@ -48,7 +49,7 @@ export default function HomeHero({ blok }) {
 
               {blok.CtaSecondaryText && (
                 <Link
-                  href={blok.CtaSecondaryLink?.url || "/"}
+                  href={resolveLink(blok.CtaSecondaryLink)}
                   className="rounded-full border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background"
                 >
                   {blok.CtaSecondaryText}
