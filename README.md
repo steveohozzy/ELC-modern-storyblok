@@ -11,6 +11,7 @@ Storyblok Headless CMS
 Tailwind CSS
 Storyblok React SDK (@storyblok/react/rsc)
 Google Fonts (Geist + Fraunces)
+
 📦 Features
 🧩 Fully component-driven CMS pages (Storyblok blocks)
 ⚡ Server-side rendering via Next.js App Router
@@ -20,6 +21,7 @@ Google Fonts (Geist + Fraunces)
 🎨 Tailwind-based design system
 📱 Fully responsive layout system
 🧱 Reusable Storyblok blocks (Hero, Marquee, Blog, etc.)
+
 📁 Project Structure
 src/
 ├── app/
@@ -36,6 +38,7 @@ src/
 ├── lib/
 │   ├── storyblok.js          # Storyblok init + link resolver
 │   ├── getNavigation.js      # Dynamic navigation from Storyblok
+
 🧠 How It Works
 1. Storyblok as CMS
 
