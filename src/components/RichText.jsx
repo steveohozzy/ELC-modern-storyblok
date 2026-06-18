@@ -28,7 +28,7 @@ export default function RichText({ blok }) {
     <section
       {...storyblokEditable(blok)}
       className={[
-        "px-4 md:px-8",
+        "px-4 md:px-8 mx-auto",
         width[blok.width] || "max-w-none",
         paddingTop[blok.paddingTop] || "",
         paddingBottom[blok.paddingBottom] || "",
