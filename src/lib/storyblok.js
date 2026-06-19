@@ -1,5 +1,6 @@
 import Page from "@/components/Page";
 import BlogPage from "@/components/BlogPage";
+import BlogPost from "@/components/BlogPost";
 import HomepageHero from "@/components/HomepageHero";
 import StorySection from "@/components/StorySection";
 import Marquee from "@/components/Marquee";
@@ -41,7 +42,8 @@ export const getStoryblokApi = storyblokInit({
     Grid: Grid,
     column: Column,
     htmlBlock: HtmlBlock,
-     blogPost: BlogPage,
+    BlogPage: BlogPage,
+    BlogPost: BlogPost,
   },
 
   apiOptions: {
