@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 
 import Link from "next/link";
@@ -8,12 +8,30 @@ import Image from "next/image";
 
 export default function BlogFilters({ posts }) {
   const searchParams = useSearchParams();
+  const filterRef = useRef(null);
 
-  const categoryFromUrl =
-    searchParams.get("category") || "All";
+  // initial state from URL only once
+  const [selected, setSelected] = useState(
+    () => searchParams.get("category") || "All"
+  );
 
-  const [selected, setSelected] =
-    useState(categoryFromUrl);
+  // scroll only
+  useEffect(() => {
+    const category =
+      searchParams.get("category") || "All";
+
+    if (
+      category !== "All" &&
+      filterRef.current
+    ) {
+      setTimeout(() => {
+        filterRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  }, [searchParams]);
 
   const categories = [
     "All",
@@ -36,7 +54,10 @@ export default function BlogFilters({ posts }) {
 
   return (
     <>
-      <div className="mb-8 flex flex-wrap gap-3">
+      <div
+        ref={filterRef}
+        className="mb-8 flex flex-wrap gap-3 scroll-mt-28"
+      >
         {categories.map(category => (
           <button
             key={category}
@@ -74,7 +95,6 @@ export default function BlogFilters({ posts }) {
             "
           >
             <Link href={`/${post.full_slug}`}>
-              
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
@@ -112,7 +132,6 @@ export default function BlogFilters({ posts }) {
                 )}
               </div>
 
-              {/* Content */}
               <div className="flex flex-col p-6">
                 <div>
                   <h3 className="font-heading text-xl font-semibold">
