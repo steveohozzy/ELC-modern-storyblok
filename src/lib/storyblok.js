@@ -1,4 +1,5 @@
 import Page from "@/components/Page";
+import BlogPage from "@/components/BlogPage";
 import HomepageHero from "@/components/HomepageHero";
 import StorySection from "@/components/StorySection";
 import Marquee from "@/components/Marquee";
@@ -11,6 +12,7 @@ import Column from "@/components/Column";
 import HtmlBlock from "@/components/HTMLBlock";
 
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+
 
 export function resolveLink(link) {
   if (!link) return "/";
@@ -39,6 +41,7 @@ export const getStoryblokApi = storyblokInit({
     Grid: Grid,
     column: Column,
     htmlBlock: HtmlBlock,
+     blogPage: BlogPage,
   },
 
   apiOptions: {
