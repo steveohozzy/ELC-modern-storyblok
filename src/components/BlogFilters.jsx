@@ -67,6 +67,7 @@ export default function BlogFilters({ posts }) {
               px-4
               py-2
               transition-all
+              cursor-pointer
               ${
                 selected === category
                   ? "bg-primary text-white"
