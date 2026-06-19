@@ -41,7 +41,7 @@ export const getStoryblokApi = storyblokInit({
     Grid: Grid,
     column: Column,
     htmlBlock: HtmlBlock,
-     blogPage: BlogPage,
+     blogPost: BlogPage,
   },
 
   apiOptions: {
