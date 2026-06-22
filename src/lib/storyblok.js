@@ -1,6 +1,8 @@
 import Page from "@/components/Page";
 import BlogPage from "@/components/BlogPage";
 import BlogPost from "@/components/BlogPost";
+import BrandsHub from "@/components/BrandsHub";
+import BrandSection from "@/components/BrandSection";
 import HomepageHero from "@/components/HomepageHero";
 import StorySection from "@/components/StorySection";
 import Marquee from "@/components/Marquee";
@@ -44,6 +46,8 @@ export const getStoryblokApi = storyblokInit({
     htmlBlock: HtmlBlock,
     blogPage: BlogPage,
     blogPost: BlogPost,
+    brandsHub: BrandsHub,
+    brandSection: BrandSection,
   },
 
   apiOptions: {
