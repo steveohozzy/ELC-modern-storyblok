@@ -4,7 +4,6 @@ import { storyblokEditable } from "@storyblok/react/rsc";
 import { resolveLink } from "@/lib/storyblok";
 
 export default function HomeHero({ blok }) {
-  console.log(blok);
   return (
     <section
       {...storyblokEditable(blok)}

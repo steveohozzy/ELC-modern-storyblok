@@ -8,7 +8,19 @@ export async function getNavigation() {
   });
 
   return Object.values(data.links)
-    .filter((link) => link.slug !== "home")
+    .filter((link) => {
+      const slug = link.slug;
+
+      if (!slug) return false;
+
+      if (slug === "home") return false;
+
+      if (slug.startsWith("globals")) return false;
+
+      if (slug.startsWith("footer")) return false;
+
+      return true;
+    })
     .filter((link) => {
       return !link.slug.includes("/") || link.slug.split("/").length === 1;
     });

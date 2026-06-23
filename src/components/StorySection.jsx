@@ -57,7 +57,7 @@ export default function StorySection({ blok }) {
             </span>
           )}
 
-          <h2 className="mt-3 text-balance font-heading text-4xl font-semibold leading-tight text-foreground md:text-5xl">
+          <h2 className="mt-3 text-balance font-heading text-4xl font-semibold leading-tight text-primary md:text-5xl">
             {blok.Title}
           </h2>
 
