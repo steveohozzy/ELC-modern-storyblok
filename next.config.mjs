@@ -12,7 +12,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "www.elc.co.uk",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "a.storyblok.com",
+        pathname: "/**",
       },
     ],
   },

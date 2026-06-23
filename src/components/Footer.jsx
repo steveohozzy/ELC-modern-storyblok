@@ -66,7 +66,7 @@ export default async function Footer() {
           <Image
             src={
               footer.logo?.filename ||
-              "https://www.elc.co.uk/medias/site-logo.svg?context=bWFzdGVyfGltYWdlc3wzNDcwN3xpbWFnZS9zdmcreG1sfGFXMWhaMlZ6TDJnNFppOW9ZV0l2T1RFNE56WTNNVGsyTlRjeU5pNXpkbWN8MDMyOGQ4OTBmM2VlYzg2Yzc1Nzc4YzQyNTAxNmI1OWUyNGY3YzE1OTQzZjkxYTFlYjA3NGQ0ZmJiZDM2MjcyZQ"
+              "https://www.elc.co.uk/medias/2026-elc-brands-logo-elc-png.png?context=bWFzdGVyfHJvb3R8NTgwNzV8aW1hZ2UvcG5nfGFEazRMMmcwTXk4eE1qYzBOamMxTURJNU5qQTVOQzh5TURJMkxXVnNZeTFpY21GdVpITXRiRzluYnkxbGJHTXRjRzVuTG5CdVp3fDA1NDhhMjNlNjRhYmQ1YmE1YWJkYjY0NWI0MDA5NTgwNmJhY2ZjM2Y1NDU4OTEzMDNhMDYwZWU5ZGI5OTAwNjU"
             }
             alt="ELC"
             width={180}
