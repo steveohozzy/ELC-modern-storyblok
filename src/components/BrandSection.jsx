@@ -25,8 +25,6 @@ export default function BrandSection({
         ?.toLowerCase()
         ?.replace(/\s+/g, "-")}
       className={`
-        overflow-hidden
-        mx-auto max-w-7xl px-4 md:px-8
         ${background}
       `}
     >
@@ -42,6 +40,8 @@ export default function BrandSection({
           lg:grid-cols-2
           lg:px-14
           lg:py-16
+          overflow-hidden
+          mx-auto max-w-7xl
         `}
       >
         {/* Image */}
