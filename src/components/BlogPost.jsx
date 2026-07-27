@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   StoryblokServerComponent,
   storyblokEditable,
+  renderRichText,
 } from "@storyblok/react/rsc";
 
 export default function BlogPost({ blok }) {
@@ -118,6 +119,20 @@ export default function BlogPost({ blok }) {
       </section>
 
       {/* Content */}
+      <section className="mx-auto">
+          {blok.richTexr?.map((nested) => (
+            <div
+            key={1}
+            dangerouslySetInnerHTML={{
+              __html:
+                renderRichText(
+                  blok.Description
+                ),
+            }}/>
+          ))}
+      </section>
+
+      {/* Manual Blocks */}
       <section className="mx-auto">
           {blok.articleBlocks?.map((nested) => (
             <StoryblokServerComponent
