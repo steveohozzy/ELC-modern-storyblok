@@ -5,6 +5,8 @@ import {
   storyblokEditable,
   renderRichText,
 } from "@storyblok/react/rsc";
+import Blog from "./BlogSection";
+import BlogRichText from "./BlogRichText";
 
 export default function BlogPost({ blok }) {
   return (
@@ -117,8 +119,14 @@ export default function BlogPost({ blok }) {
           </div>
         </div>
       </section>
-
-      
+      {/* Content */}
+        <section className="mx-auto">
+          {blok.richText && (
+            <BlogRichText
+              richText={blok.richText}
+            />
+          )}
+        </section>
 
       {/* Manual Blocks */}
       <section className="mx-auto">
