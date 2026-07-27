@@ -118,19 +118,7 @@ export default function BlogPost({ blok }) {
         </div>
       </section>
 
-      {/* Content */}
-      <section className="mx-auto">
-          {blok.richText?.map((nested) => (
-            <div
-            key={1}
-            dangerouslySetInnerHTML={{
-              __html:
-                renderRichText(
-                  blok.richText
-                ),
-            }}/>
-          ))}
-      </section>
+      
 
       {/* Manual Blocks */}
       <section className="mx-auto">
