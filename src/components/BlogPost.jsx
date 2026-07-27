@@ -120,13 +120,13 @@ export default function BlogPost({ blok }) {
 
       {/* Content */}
       <section className="mx-auto">
-          {blok.richTexr?.map((nested) => (
+          {blok.richText?.map((nested) => (
             <div
             key={1}
             dangerouslySetInnerHTML={{
               __html:
                 renderRichText(
-                  blok.Description
+                  blok.richText
                 ),
             }}/>
           ))}
