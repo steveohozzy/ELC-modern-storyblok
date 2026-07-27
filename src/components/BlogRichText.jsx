@@ -44,6 +44,8 @@ export default function BlogRichText({ richText }) {
         "[&_img]:border-border",
         "[&_img]:shadow-xl",
 
+        "[&_li_p]:inline",
+
       ].join(" ")}
       dangerouslySetInnerHTML={{
         __html: renderRichText(richText),
