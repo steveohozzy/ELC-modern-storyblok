@@ -13,39 +13,69 @@ export default function BrandSection({
 }) {
   const reversed = index % 2 !== 0;
 
-  const background =
-    index % 2 !== 0
-      ? "bg-[#F5EFE6]"
-      : "bg-white";
-
   return (
     <section
       {...storyblokEditable(blok)}
       id={blok.BrandName
         ?.toLowerCase()
         ?.replace(/\s+/g, "-")}
-      className={`
-        ${background}
-      `}
+      className="
+        relative
+        overflow-hidden
+        bg-gradient-to-b
+        from-[#f1faf4]
+        via-white
+        to-[#f7fbf8]
+      "
     >
+
+      {/* Background glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-40
+          top-10
+          size-96
+          rounded-full
+          bg-emerald-200/40
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          bottom-0
+          size-96
+          rounded-full
+          bg-green-100/60
+          blur-[140px]
+        "
+      />
+
+
       <div
         className={`
+          relative
+          z-10
           mx-auto
           grid
+          max-w-7xl
           items-center
-          gap-12
-          px-6
-          py-12
-          md:px-10
+          gap-14
+          px-4
+          py-20
+          md:px-8
           lg:grid-cols-2
-          lg:px-14
-          lg:py-16
-          overflow-hidden
-          mx-auto max-w-7xl
+          lg:gap-20
+          lg:py-28
         `}
       >
-        {/* Image */}
 
+        {/* Image */}
         <div
           className={
             reversed
@@ -53,35 +83,59 @@ export default function BrandSection({
               : ""
           }
         >
+
           <div
             className="
-              overflow-hidden
-              rounded-[2rem]
-              shadow-xl
+              rounded-[2.5rem]
+              border
+              border-emerald-200
+              bg-white/80
+              p-3
+              shadow-[0_30px_80px_rgba(16,185,129,0.18)]
+              backdrop-blur-xl
             "
           >
-            <Image
-              src={
-                blok.BrandImage?.filename
-              }
-              alt={
-                blok.BrandName
-              }
-              width={700}
-              height={700}
+
+            <div
               className="
-                w-full
-                object-cover
-                transition-transform
-                duration-700
-                hover:scale-105
+                relative
+                aspect-square
+                overflow-hidden
+                rounded-[2rem]
               "
-            />
+            >
+
+              <Image
+                src={
+                  blok.BrandImage?.filename ||
+                  "/images/heritage.png"
+                }
+                alt={
+                  blok.BrandName ||
+                  "Brand image"
+                }
+                fill
+                sizes="
+                  (max-width:768px) 100vw,
+                  50vw
+                "
+                className="
+                  object-cover
+                  transition-transform
+                  duration-700
+                  hover:scale-105
+                "
+              />
+
+            </div>
+
           </div>
+
         </div>
 
-        {/* Content */}
 
+
+        {/* Content */}
         <div
           className={
             reversed
@@ -89,48 +143,103 @@ export default function BrandSection({
               : ""
           }
         >
+
+
+          {/* Logo */}
           {blok.BrandLogo?.filename && (
-            <Image
-              src={
-                blok.BrandLogo.filename
-              }
-              alt={
-                blok.BrandName
-              }
-              width={180}
-              height={70}
-            />
+
+            <div
+              className="
+                inline-flex
+                items-center
+                justify-center
+                rounded-[1.5rem]
+                border
+                border-emerald-200
+                bg-white
+                px-6
+                py-4
+                shadow-[0_20px_50px_rgba(16,185,129,0.15)]
+                ring-1
+                ring-emerald-100
+              "
+            >
+
+              <Image
+                src={
+                  blok.BrandLogo.filename
+                }
+                alt={
+                  blok.BrandName
+                }
+                width={180}
+                height={70}
+                className="
+                  h-14
+                  w-auto
+                  object-contain
+                "
+              />
+
+            </div>
+
           )}
 
+
+
+          {/* Title */}
           <h2
             className="
-              mt-6
+              mt-8
+              bg-gradient-to-r
+              from-[#0d2f1a]
+              to-emerald-600
+              bg-clip-text
               font-heading
               text-4xl
+              font-black
+              leading-tight
+              text-transparent
               md:text-5xl
-              text-primary
             "
           >
             {blok.BrandName}
           </h2>
 
-          <p
-            className="
-              mt-6
-              text-lg
-              leading-relaxed
-              text-muted-foreground
-            "
-          >
-            {blok.Intro}
-          </p>
 
-          {blok.Description && (
-            <div
+
+          {blok.Intro && (
+
+            <p
               className="
                 mt-6
+                text-lg
+                leading-8
+                text-[#355b47]
+              "
+            >
+              {blok.Intro}
+            </p>
+
+          )}
+
+
+
+          {blok.Description && (
+
+            <div
+              className="
                 prose
+                prose-lg
+                mt-6
                 max-w-none
+
+                prose-p:text-[#355b47]
+                prose-p:leading-8
+
+                prose-headings:text-[#0d2f1a]
+
+                prose-strong:text-[#0d2f1a]
               "
               dangerouslySetInnerHTML={{
                 __html:
@@ -139,31 +248,53 @@ export default function BrandSection({
                   ),
               }}
             />
+
           )}
 
+
+
+          {/* CTA */}
           {blok.CtaText && (
+
             <Link
-              href={resolveLink(
-                blok.CtaLink
-              )}
+              href={
+                resolveLink(
+                  blok.CtaLink
+                )
+              }
               className="
                 mt-8
                 inline-flex
+                items-center
+                gap-3
                 rounded-full
-                bg-primary
-                px-6
-                py-3
-                font-semibold
-                text-primary-foreground
-                transition-transform
+                bg-emerald-600
+                px-7
+                py-3.5
+                font-black
+                text-white
+                shadow-lg
+                shadow-emerald-600/25
+                transition-all
                 hover:-translate-y-1
+                hover:bg-emerald-500
               "
             >
+
               {blok.CtaText}
+
+              <span>
+                →
+              </span>
+
             </Link>
+
           )}
+
         </div>
+
       </div>
+
     </section>
   );
 }
