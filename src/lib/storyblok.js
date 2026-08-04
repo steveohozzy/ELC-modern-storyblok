@@ -48,6 +48,7 @@ export const getStoryblokApi = storyblokInit({
     blogPost: BlogPost,
     brandsHub: BrandsHub,
     brandSection: BrandSection,
+    
   },
 
   apiOptions: {
