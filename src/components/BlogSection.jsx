@@ -111,7 +111,9 @@ export default function Blog({ blok }) {
 
                   <div className="mt-8 flex items-center justify-between border-t border-emerald-100 pt-5">
 
-                    <span className="text-sm font-semibold text-[#355b47]">
+                    <span className="text-sm
+                      font-semibold
+                      text-emerald-700/70">
                       {p.ReadLength} read
                     </span>
 
