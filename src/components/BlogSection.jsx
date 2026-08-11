@@ -6,7 +6,7 @@ export default async function Blog({ blok }) {
   const storyblokApi = getStoryblokApi();
 
   const { data } = await storyblokApi.get("cdn/stories", {
-    version: process.env.NODE_ENV === "development" ? "draft" : "published",
+    version: "draft",
     starts_with: "blog/",
     is_startpage: false,
     sort_by: "first_published_at:desc",
