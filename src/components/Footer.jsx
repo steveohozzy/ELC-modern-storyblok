@@ -137,6 +137,7 @@ export default async function Footer() {
                   "
                 >
                   {social.icon}
+                  <span className="sr-only">{social.name}</span>
                 </Link>
               ))}
 
