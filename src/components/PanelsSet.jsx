@@ -79,22 +79,6 @@ export default function PanelsSet({ blok }) {
                   <p className="mt-4 leading-7 text-emerald-100/75">
                     {p.Blurb}
                   </p>
-
-                  <a href='#' className="mt-8 flex items-center gap-2 text-sm font-bold text-emerald-300">
-                    Learn more
-                    <svg
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14" />
-                      <path d="M13 5l7 7-7 7" />
-                    </svg>
-                  </a>
                 </div>
               </button>
             );
